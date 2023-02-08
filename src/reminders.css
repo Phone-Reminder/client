@@ -1,0 +1,32 @@
+
+.header-navbar{
+    background-color:coral;
+    font-family: cursive;
+    font-weight:bold;
+}
+.card-header.color {
+    display: flex;
+    color: rgb(211, 130, 15);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+.btn.btn-primary{
+    background-color:rgb(246, 197, 128);
+    border : 2px solid coral;
+}
+.btn.btn-primary:hover {
+    background-color: rgb(246, 197, 128);
+    border: 2px solid coral;
+}
+.form-label{
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.form-control:hover {
+    border-color:#ee840a;
+    box-shadow: 0px 0px 10px #ee840a;
+}
+
