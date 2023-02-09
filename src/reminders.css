@@ -29,4 +29,15 @@
     border-color:#ee840a;
     box-shadow: 0px 0px 10px #ee840a;
 }
-
+.date-time{
+display: flex;
+padding:2px;
+gap: 2;
+height:42px;
+}
+.form-control-date{
+    margin-bottom: 2px;
+}
+.form-control-time {
+    margin-bottom: 2px;
+}

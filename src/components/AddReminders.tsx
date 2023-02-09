@@ -12,11 +12,12 @@ export function AddReminders(props: IAddRemindersProps) {
   const [value, setValue] = useState<string | undefined>(undefined);
   const [startDate, setStartDate] = useState(new Date());
   const [time, setTime] = useState<string>("10:00");
+  const [message, setMessage] = useState("");
 
   
   return (
     <form className="row g-3">
-      <div className="container form w-75">
+      <div className="container form w-50">
         <div className="card form">
           <div className="card-header color">Add Reminders</div>
           <div className="card-body">
@@ -26,18 +27,21 @@ export function AddReminders(props: IAddRemindersProps) {
             <PhoneInput country={"gb"} value={value} onChange={setValue} />
 
             <br></br>
-            <div>
+            
             <label htmlFor="dateandtime" className="form-label">
               Date and Time:
             </label>
+            <div className='date-time'>
             <DatePicker
               selected={startDate}
-              onChange={(date: Date) => setStartDate(date)}
+                onChange={(date: Date) => setStartDate(date)}
+                className="form-control"
+                
             />
 
             <TimePicker
               onChange={(value: TimePickerValue) => setTime(value.toString())}
-              value={time}
+              value={time} className="form-control"
               />
               </div>
             <br></br>
@@ -45,7 +49,9 @@ export function AddReminders(props: IAddRemindersProps) {
             <label htmlFor="message" className="form-label">
               Message:
             </label>
-            <textarea className="form-control"></textarea>
+            <textarea className="form-control"
+              value={message}
+              onChange={(e)=>{setMessage(e.target.value)}}></textarea>
             <br></br>
             <div className="loginbutton">
               <button type="submit" className="btn btn-primary">
