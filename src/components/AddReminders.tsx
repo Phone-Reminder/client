@@ -9,14 +9,30 @@ export interface IAddRemindersProps {
 }
 
 export function AddReminders(props: IAddRemindersProps) {
-  const [value, setValue] = useState<string | undefined>(undefined);
+  
+  const [phoneNo, setPhoneNo] = useState<string | undefined>(undefined);
   const [startDate, setStartDate] = useState(new Date());
   const [time, setTime] = useState<string>("10:00");
   const [message, setMessage] = useState("");
+  const dateTime = startDate + time;
+  const handleReminderData = (e) => {
+    e.preventDefault();
+    let reminder = {
+      phoneNo,
+      dateTime,
+      message
+    }
+    addReminder(reminder);
+    setPhoneNo("");
+    setStartDate();
+    setTime("");
+    setMessage("");
+
+  }
 
   
   return (
-    <form className="row g-3">
+    <form className="row g-3" onSubmit={ handleReminderData}>
       <div className="container form w-50">
         <div className="card form">
           <div className="card-header color">Add Reminders</div>
@@ -24,34 +40,38 @@ export function AddReminders(props: IAddRemindersProps) {
             <label htmlFor="phoneno" className="form-label">
               Phone No:
             </label>
-            <PhoneInput country={"gb"} value={value} onChange={setValue} />
+            <PhoneInput country={"gb"} value={phoneNo} onChange={setPhoneNo} />
 
             <br></br>
-            
+
             <label htmlFor="dateandtime" className="form-label">
               Date and Time:
             </label>
-            <div className='date-time'>
-            <DatePicker
-              selected={startDate}
+            <div className="date-time">
+              <DatePicker
+                selected={startDate}
                 onChange={(date: Date) => setStartDate(date)}
                 className="form-control"
-                
-            />
-
-            <TimePicker
-              onChange={(value: TimePickerValue) => setTime(value.toString())}
-              value={time} className="form-control"
               />
-              </div>
+
+              <TimePicker
+                onChange={(value: TimePickerValue) => setTime(value.toString())}
+                value={time}
+                className="form-control"
+              />
+            </div>
             <br></br>
 
             <label htmlFor="message" className="form-label">
               Message:
             </label>
-            <textarea className="form-control"
+            <textarea
+              className="form-control"
               value={message}
-              onChange={(e)=>{setMessage(e.target.value)}}></textarea>
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+            ></textarea>
             <br></br>
             <div className="loginbutton">
               <button type="submit" className="btn btn-primary">
