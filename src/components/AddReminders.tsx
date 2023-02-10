@@ -6,6 +6,7 @@ import TimePicker, { TimePickerValue } from "react-time-picker";
 import { useState } from "react";
 
 export interface IAddRemindersProps {
+ addReminder: (reminder: any) => void;
 }
 
 export function AddReminders(props: IAddRemindersProps) {
@@ -14,20 +15,22 @@ export function AddReminders(props: IAddRemindersProps) {
   const [startDate, setStartDate] = useState(new Date());
   const [time, setTime] = useState<string>("10:00");
   const [message, setMessage] = useState("");
-  const dateTime = startDate + time;
-  const handleReminderData = (e) => {
+  const date = startDate + time;
+  const phonenumber = "+" + phoneNo;
+  const handleReminderData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let reminder = {
-      phoneNo,
-      dateTime,
+      date,
+      phonenumber,
       message
     }
-    addReminder(reminder);
+   
     setPhoneNo("");
-    setStartDate();
+    setStartDate(new Date());
     setTime("");
     setMessage("");
-
+    console.log(reminder);
+    props.addReminder(reminder);
   }
 
   
