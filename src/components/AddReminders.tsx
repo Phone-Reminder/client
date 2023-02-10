@@ -15,7 +15,10 @@ export function AddReminders(props: IAddRemindersProps) {
   const [startDate, setStartDate] = useState(new Date());
   const [time, setTime] = useState<string>("10:00");
   const [message, setMessage] = useState("");
-  const date = startDate + time;
+  let dateString = startDate.toISOString().split('T')[0];
+  let timeString = time + ":00Z";
+  let date = `${dateString}T${timeString}`;
+ 
   const phonenumber = "+" + phoneNo;
   const handleReminderData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +32,6 @@ export function AddReminders(props: IAddRemindersProps) {
     setStartDate(new Date());
     setTime("");
     setMessage("");
-    console.log(reminder);
     props.addReminder(reminder);
   }
 
