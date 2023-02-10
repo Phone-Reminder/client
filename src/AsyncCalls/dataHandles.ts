@@ -21,7 +21,6 @@ export const getReminders = async (setReminders:(responseURL:[])=>void, setError
     const getUrl = "http://localhost:4000/getReminder";
     const responseURL = await axios.get(getUrl);
     setReminders(responseURL.data);
-    console.log(responseURL.data);
   } catch (error) {
      setError("There is a Problem while Getting the Reminders");
   }
