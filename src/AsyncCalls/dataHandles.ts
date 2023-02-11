@@ -4,7 +4,7 @@ import axios from "axios";
 export const addReminderData = async (reminder: any, setError: (error: string) => void) => {
   const { date, phonenumber, message } = reminder;
   try {
-    const url = "http://localhost:4000/addReminder";
+    const url = "server-production-1c8a.up.railway.app/addReminder";
     if (date && phonenumber && message) {
       const responseAddURL = await axios.post(url, reminder);
       console.log(responseAddURL);
@@ -18,7 +18,7 @@ export const addReminderData = async (reminder: any, setError: (error: string) =
 
 export const getReminders = async (setReminders:(responseURL:[])=>void, setError: (error: string) => void) => {
   try {
-    const getUrl = "http://localhost:4000/getReminder";
+    const getUrl = "server-production-1c8a.up.railway.app/getReminder";
     const responseURL = await axios.get(getUrl);
     setReminders(responseURL.data);
   } catch (error) {
