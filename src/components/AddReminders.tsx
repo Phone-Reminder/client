@@ -71,7 +71,7 @@ export function AddReminders(props: IAddRemindersProps) {
           <label htmlFor="message" className="form-label">Message:</label>
           <textarea
             required
-            placeholder="This app uses Twilio free-trial version and therefore will not work with unverified numbers"
+            placeholder="This app uses Twilio free-trial version - verified numbers only"
             className="form-control"
             value={message}
             onChange={(e) => {
