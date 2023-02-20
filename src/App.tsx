@@ -6,6 +6,8 @@ import { addReminderData,getReminders } from './AsyncCalls/dataHandles';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PageNotFound from "./components/PageNotFound"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [error, setError] = useState("");
@@ -22,8 +24,25 @@ function App() {
   }, []);
   return (
  
+    
     <div className="App">
+           <ToastContainer
+position="bottom-center"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+
+        
+/>
       {!error ?
+
+       
         <><Header /><AddReminders addReminder={addReminder} /></>
         : <PageNotFound/> }
       </div>

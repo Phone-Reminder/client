@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 export const addReminderData = async (reminder: any, setError: (error: string) => void) => {
@@ -8,6 +9,7 @@ export const addReminderData = async (reminder: any, setError: (error: string) =
     if (date && phonenumber && message) {
       const responseAddURL = await axios.post(url, reminder);
       //console.log(responseAddURL);
+      toast("Reminder set!")
     } else {
       console.log("Invalid Data");
     }
