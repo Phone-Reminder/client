@@ -14,7 +14,6 @@ export interface IAddRemindersProps {
 export function AddReminders(props: IAddRemindersProps) {
   const [phoneNo, setPhoneNo] = useState<string | undefined>(undefined);
   const [startDate, setStartDate] = useState(new Date());
-  // const [time, setTime] = useState<string>("10:00");
   const [message, setMessage] = useState("");
   const dateString = startDate.toISOString();
   const  date =  dateString.substring(0,dateString.indexOf("."))+"Z"
@@ -34,66 +33,6 @@ export function AddReminders(props: IAddRemindersProps) {
   };
 
   return (
-    // <form className="row g-3" onSubmit={handleReminderData}>
-    //   <div className="container form col-md-6">
-    //     <div className="card form">
-    //       <div className="card-header color">Add Reminders</div>
-    //       <div className="card-body">
-    //         <label htmlFor="phoneno" className="form-label">
-    //           Phone No:
-    //         </label>
-    //          <div style={{ maxWidth: '400px' }}>
-    //         <PhoneInput country={"gb"} value={phoneNo} onChange={setPhoneNo}
-    //         inputStyle={{
-    //         border: '1px solid #ccc',
-    //         borderRadius: '4px',
-    //         paddingLeft: '50px',
-    //         fontSize: '16px',
-    //         width: '100%',
-    //         margin:"0"
-    //     }}/></div>
-    //         <br></br>
-
-    //         <div className="form-group">
-    //           <label htmlFor="dateandtime" className="form-label">
-    //             Date and Time:
-    //           </label>
-    //           <div className="row">
-    //             <div className="col-md-6">
-    //               <DatePicker
-    //                 selected={startDate}
-    //                 onChange={(date: Date) => setStartDate(date)}
-    //                 className="form-control"
-    //                 showTimeSelect
-    //                 dateFormat="Pp"
-    //               />
-    //             </div>
-    //           </div>
-    //         </div>
-    //         <br></br>
-    //         <div className="col-md-6">
-    //         <label htmlFor="message" className="form-label">
-    //           Message:
-    //         </label>
-    //         <textarea
-    //           required
-    //           className="form-control"
-    //           value={message}
-    //           onChange={(e) => {
-    //             setMessage(e.target.value);
-    //           }}
-    //           ></textarea>
-    //           </div>
-    //         <br></br>
-    //         <div className="loginbutton">
-    //           <button type="submit" className="btn btn-primary">
-    //             Send
-    //           </button>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </form>
     <form className="row justify-content-center" onSubmit={handleReminderData}>
   <div className="col-md-6">
     <div className="card">
