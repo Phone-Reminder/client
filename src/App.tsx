@@ -6,7 +6,7 @@ import { addReminderData,getReminders } from './AsyncCalls/dataHandles';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PageNotFound from "./components/PageNotFound"
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
