@@ -13,7 +13,7 @@ function App() {
   const addReminder = (reminder:any) => {
     addReminderData(reminder,setError);
   }
-  console.log(reminder);
+  console.log(reminder)
   const getReminderHandler = () => {
     getReminders(setReminder, setError);
   }

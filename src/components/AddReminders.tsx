@@ -2,7 +2,6 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TimePicker, { TimePickerValue } from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
 import { useState } from "react";
@@ -15,12 +14,10 @@ export interface IAddRemindersProps {
 export function AddReminders(props: IAddRemindersProps) {
   const [phoneNo, setPhoneNo] = useState<string | undefined>(undefined);
   const [startDate, setStartDate] = useState(new Date());
-  const [time, setTime] = useState<string>("10:00");
+  // const [time, setTime] = useState<string>("10:00");
   const [message, setMessage] = useState("");
-  let dateString = startDate.toISOString().split("T")[0];
-  let timeString = time + ":00Z";
-  let date = `${dateString}T${timeString}`;
-
+  const dateString = startDate.toISOString();
+  const  date =  dateString.substring(0,dateString.indexOf("."))+"Z"
   const phonenumber = "+" + phoneNo;
   const handleReminderData = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,9 +27,8 @@ export function AddReminders(props: IAddRemindersProps) {
       message,
     };
 
-    setPhoneNo("");
+    setPhoneNo("+44");
     setStartDate(new Date());
-    setTime("");
     setMessage("");
     props.addReminder(reminder);
   };
@@ -68,16 +64,8 @@ export function AddReminders(props: IAddRemindersProps) {
                     selected={startDate}
                     onChange={(date: Date) => setStartDate(date)}
                     className="form-control"
-                    dateFormat="P"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <TimePicker
-                    onChange={(value: TimePickerValue) => setTime(value.toString())}
-                    value={time}
-                    className="form-control"
-                    required
-                    disableClock
+                    showTimeSelect
+                    dateFormat="Pp"
                   />
                 </div>
               </div>
